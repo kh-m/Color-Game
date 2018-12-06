@@ -5,6 +5,11 @@ var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
+var reset = document.querySelector("#reset");
+
+resetButton.addEventListener("click", function() {
+    alert("CLICKED!");
+})
 
 colorDisplay.textContent = pickedColor;
 
@@ -83,3 +88,4 @@ function randomColor() {
 //Make it possible to select color box using keyboard and resetting using spacebar
 //Change background color to correct color once selected ...?
 //Make correct box grow slightly when selected
+//Comedic 'language selection'; Canadian/British: colour, US: color, French: colour etc.
