@@ -4,6 +4,7 @@ var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
+var h1 = document.querySelector("h1");
 
 colorDisplay.textContent = pickedColor;
 
@@ -19,6 +20,7 @@ for (var i = 0; i < squares.length; i++) {
         if (clickedColor === pickedColor) {
             messageDisplay.textContent = "Correct!";
             changeColors(clickedColor);
+            h1.style.backgroundColor = clickedColor;
         } else {
             this.style.backgroundColor = "#232323";
             messageDisplay.textContent = "Try again";
@@ -69,6 +71,8 @@ function randomColor() {
 //Option to include simple cheat-sheet with basic color combos
 //Expert mode with HSLA
 //'Turn on hint-mode' that colours the corresponding r/g/b value with that color in the heading
+//Play with Pantone color names
+//https://en.wikipedia.org/wiki/List_of_colors:_A–F
 
 
 // COMPETITION
@@ -77,3 +81,5 @@ function randomColor() {
 //Countdown timer for competition
 
 //Make it possible to select color box using keyboard and resetting using spacebar
+//Change background color to correct color once selected ...?
+//Make correct box grow slightly when selected
