@@ -93,6 +93,7 @@ function randomColor() {
 
 // COMPETITION
 //Scorekeeper for competition
+//2 attemps; 1st=2pts 2nd=1pt
 //Multiplayer mode (you can insert names)
 //Countdown timer for competition
 
