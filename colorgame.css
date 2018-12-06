@@ -15,9 +15,10 @@ body {
     max-width: 600px;
 }
 
-h1 {
+.page-title {
     color: white;
     text-align: center;
+    background: steelBlue;
 }
 
 /* span {
