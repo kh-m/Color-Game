@@ -25,6 +25,9 @@ easyBtn.addEventListener("click", function () {
         }
     }
     messageDisplay.textContent = "";
+    //Just used a simple way to reset the background color of h1's, since it was remaining
+    //after selecting correct color
+    h1.style.backgroundColor = "";
 });
 
 //Hard Button function
@@ -40,6 +43,9 @@ hardBtn.addEventListener("click", function () {
         squares[i].style.display = "block";
     }
     messageDisplay.textContent = "";
+    //Just used a simple way to reset the background color of h1's, since it was remaining
+    //after selecting correct color
+    h1.style.backgroundColor = "";
 });
 
 //Reset Button function
@@ -54,6 +60,9 @@ resetButton.addEventListener("click", function () {
     for (var i = 0; i < squares.length; i++) {
         squares[i].style.background = colors[i];
     }
+    //Just used a simple way to reset the background color of h1's, since it was remaining
+    //after selecting correct color
+    h1.style.backgroundColor = "";
     h1.classList.add("pageTitle");
     resetButton.textContent = "Reset";
     messageDisplay.textContent = "";
