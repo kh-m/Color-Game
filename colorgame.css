@@ -6,29 +6,32 @@ body {
 
 .square {
     width: 30%;
-    background: purple;
+    background-color: purple;
     padding-bottom: 30%;
     float: left;
     margin: 1.66%;
+    border-radius: 5%;
+    transition: background-color 0.4s;
+    /* browser-friendly proprties for transition */
+    --webit-transition: background-color 0.4s:
+    -moz-transition: background-color 0.4s:
 }
 
 #container {
-    margin: 0 auto;
+    margin: 20px auto;
     max-width: 600px;
 }
 
 .pageTitle {
     text-align: center;
+    line-height: 1.1;
     font-weight: normal;
     text-transform: uppercase;
-    background-color: steelBlue;
-    color: white;
+    background-color: white;
+    color: black;
     margin: 0;
+    padding: 20px 0;
 }
-
-/* span {
-    color: white;
-} */
 
 #stripe {
     background: white;
@@ -42,4 +45,28 @@ body {
 
 #colorDisplay {
     font-size: 1.5em;
+}
+
+#message {
+    display: inline-block;
+    width: 15%;
+}
+
+button {
+    border: none;
+    background-color: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 500;
+    letter-spacing: 1.7px;
+    font-size: 0.75em;
+    transition: all 0.2s;
+    /* browser-friendly proprties for transition */
+    --webit-transition: all 0.4s:
+    -moz-transition: all 0.4s:
+}
+
+button:hover {
+    color: white;
+    background: grey;
 }
