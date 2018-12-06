@@ -1,5 +1,7 @@
 body {
     background-color: #232323;
+    margin: 0;
+    font-family: 'Montserrat', 'Avenir';
 }
 
 .square {
@@ -15,10 +17,13 @@ body {
     max-width: 600px;
 }
 
-.page-title {
-    color: white;
+.pageTitle {
     text-align: center;
-    background: steelBlue;
+    font-weight: normal;
+    text-transform: uppercase;
+    background-color: steelBlue;
+    color: white;
+    margin: 0;
 }
 
 /* span {
@@ -33,4 +38,8 @@ body {
 
 .selected {
     background: yellow;
+}
+
+#colorDisplay {
+    font-size: 1.5em;
 }
