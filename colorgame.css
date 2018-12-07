@@ -40,7 +40,7 @@ body {
 }
 
 .selected {
-    background: yellow;
+    background: grey;
 }
 
 #colorDisplay {
@@ -61,6 +61,7 @@ button {
     letter-spacing: 1.7px;
     font-size: 0.75em;
     transition: all 0.2s;
+    outline: none;
     /* browser-friendly proprties for transition */
     --webit-transition: all 0.4s:
     -moz-transition: all 0.4s:

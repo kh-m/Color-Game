@@ -8,118 +8,99 @@ var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
 var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
+var modeButtons = document.querySelectorAll(".mode");
 
-//Easy Button function
-easyBtn.addEventListener("click", function () {
-    hardBtn.classList.remove("selected");
-    easyBtn.classList.add("selected");
-    numSquares = 3;
-    colors = generateRandomColors(numSquares);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    for (var i = 0; i < squares.length; i++) {
-        if (colors[i]) {
-            squares[i].style.backgroundColor = colors[i];
-        } else {
-            squares[i].style.display = "none";
-        }
-    }
-    messageDisplay.textContent = "";
-    //Just used a simple way to reset the background color of h1's, since it was remaining
-    //after selecting correct color
-    h1.style.backgroundColor = "";
-});
+for (var i = 0; i < modeButtons.length; i++) {
+    modeButtons[i].addEventListener("click", function () {
+        modeButtons[0].classList.remove("selected");
+        modeButtons[1].classList.remove("selected");
+        this.classList.add("selected");
+        this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
+        reset();
+    })
+};
 
-//Hard Button function
-hardBtn.addEventListener("click", function () {
-    easyBtn.classList.remove("selected");
-    hardBtn.classList.add("selected");
-    numSquares = 6;
+function reset() {
     colors = generateRandomColors(numSquares);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    for (var i = 0; i < squares.length; i++) {
-        squares[i].style.backgroundColor = colors[i];
-        squares[i].style.display = "block";
-    }
-    messageDisplay.textContent = "";
-    //Just used a simple way to reset the background color of h1's, since it was remaining
-    //after selecting correct color
-    h1.style.backgroundColor = "";
-});
-
-//Reset Button function
-resetButton.addEventListener("click", function () {
-    //generate all new colors
-    colors = generateRandomColors(numSquares);
-    //pick a new random color from array
     pickedColor = pickColor();
     //change colorDisplay to match picked color
     colorDisplay.textContent = pickedColor;
-    //change colors of squares on page
-    for (var i = 0; i < squares.length; i++) {
-        squares[i].style.background = colors[i];
-    }
-    //Just used a simple way to reset the background color of h1's, since it was remaining
-    //after selecting correct color
-    h1.style.backgroundColor = "";
-    h1.classList.add("pageTitle");
     resetButton.textContent = "Reset";
     messageDisplay.textContent = "";
-});
-
-colorDisplay.textContent = pickedColor;
-
-for (var i = 0; i < squares.length; i++) {
-    //add initial colors to squares
-    squares[i].style.backgroundColor = colors[i];
-
-    //add click listeners to squares
-    squares[i].addEventListener("click", function () {
-        //grab color of clicked square
-        var clickedColor = this.style.backgroundColor;
-        //compare color to pickedColor
-        if (clickedColor === pickedColor) {
-            messageDisplay.textContent = "Correct!";
-            resetButton.textContent = "Play Again?";
-            changeColors(clickedColor);
-            h1.style.backgroundColor = clickedColor;
-        } else {
-            this.style.backgroundColor = "#232323";
-            messageDisplay.textContent = "Try again";
-        }
-    });
-};
-
-function changeColors(color) {
-    //loop through all squares
+    
+    //loops through squares to recolor and display/hide them
     for (var i = 0; i < squares.length; i++) {
-        //change each color to match given color
-        squares[i].style.backgroundColor = color;
+        if (colors[i]) {
+            squares[i].style.display = "block";
+            squares[i].style.background = colors[i];
+        } else {
+            squares[i].style.display = "none";
+        }
+
+        //Just used a simple way to reset the background color of h1's, since it was remaining
+        //after selecting correct color
+        h1.style.backgroundColor = "";
+        h1.classList.add("pageTitle");
     }
 };
 
-function pickColor() {
-    var random = Math.floor(Math.random() * colors.length);
-    return colors[random];
-};
+    //Reset Button function
+    resetButton.addEventListener("click", function () {
+        reset();
+    });
 
-//Generates random colors and pushes them into colors array
-function generateRandomColors(num) {
-    var arr = []
-    for (var i = 0; i < num; i++) {
-        arr.push(randomColor());
+    colorDisplay.textContent = pickedColor;
+
+    for (var i = 0; i < squares.length; i++) {
+        //add initial colors to squares
+        squares[i].style.backgroundColor = colors[i];
+
+        //add click listeners to squares
+        squares[i].addEventListener("click", function () {
+            //grab color of clicked square
+            var clickedColor = this.style.backgroundColor;
+            //compare color to pickedColor
+            if (clickedColor === pickedColor) {
+                messageDisplay.textContent = "Correct!";
+                resetButton.textContent = "Play Again?";
+                changeColors(clickedColor);
+                h1.style.backgroundColor = clickedColor;
+            } else {
+                this.style.backgroundColor = "#232323";
+                messageDisplay.textContent = "Try again";
+            }
+        });
+    };
+
+    function changeColors(color) {
+        //loop through all squares
+        for (var i = 0; i < squares.length; i++) {
+            //change each color to match given color
+            squares[i].style.backgroundColor = color;
+        }
+    };
+
+    function pickColor() {
+        var random = Math.floor(Math.random() * colors.length);
+        return colors[random];
+    };
+
+    //Generates random colors and pushes them into colors array
+    function generateRandomColors(num) {
+        var arr = []
+        for (var i = 0; i < num; i++) {
+            arr.push(randomColor());
+        }
+        return arr;
     }
-    return arr;
-}
 
-//Returns a random color
-function randomColor() {
-    var r = Math.floor(Math.random() * 256);
-    var g = Math.floor(Math.random() * 256);
-    var b = Math.floor(Math.random() * 256);
-    return "rgb(" + r + ", " + g + ", " + b + ")";
-}
+    //Returns a random color
+    function randomColor() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + ", " + g + ", " + b + ")";
+    }
 
 
 
