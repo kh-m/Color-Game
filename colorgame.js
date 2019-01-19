@@ -9,15 +9,20 @@ var resetButton = document.querySelector("#reset");
 var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
 var modeButtons = document.querySelectorAll(".mode");
+var langButtons = document.querySelectorAll(".language");
+var colName = document.querySelector('#color-name');
 
 initialize();
 
 //initializes the webpage
 function initialize() {
     setupModeButtons();
+    setupLanguageButtons();
     setupSquares();
     reset();
 }
+
+
 
 //mode buttons event listeners
 function setupModeButtons() {
@@ -28,6 +33,18 @@ function setupModeButtons() {
             this.classList.add("selected");
             this.textContent === "Easy" ? numSquares = 3 : numSquares = 6;
             reset();
+        })
+    };
+}
+
+//language buttons event listeners
+function setupLanguageButtons() {
+    for (var i = 0; i < langButtons.length; i++) {
+        langButtons[i].addEventListener("click", function () {
+            langButtons[0].classList.remove("selected");
+            langButtons[1].classList.remove("selected");
+            this.classList.add("selected");
+            this.classList.contains('canada') ? colName.innerText = 'Colour' : colName.innerText = 'Color';
         })
     };
 }
